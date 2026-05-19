@@ -1,6 +1,6 @@
 Name:		python-libevdev
 Version:	0.9
-Release:	4%{?dist}
+Release:	5%{?dist}
 Summary:	Python bindings to the libevdev evdev device wrapper library
 
 License:	MIT
@@ -30,6 +30,7 @@ devices and create uinput devices.
 
 %prep
 %autosetup -n %{name}-%{version} -p1
+%py3_shebang_fix .
 
 
 %build
@@ -46,6 +47,9 @@ devices and create uinput devices.
 %{python3_sitelib}/libevdev-%{version}-py*.egg-info
 
 %changelog
+* Thu Dec 04 2025 Peter Hutterer <peter.hutterer@redhat.com> - 0.9-5
+- use pathfix.py 
+
 * Tue Aug 10 2021 Mohan Boddu <mboddu@redhat.com> - 0.9-4
 - Rebuilt for IMA sigs, glibc 2.34, aarch64 flags
   Related: rhbz#1991688
